@@ -1,7 +1,5 @@
 package com.project.carros.domain;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,18 +19,12 @@ public class CarrosService {
 		return rep.findById(id);
 		
 	}
-	
-	public List<Carro> getCarrosFake(){
-	 List<Carro> carros = new ArrayList<>();
-	 
-	 carros.add(new Carro(1L, "Fusca"));
-	 carros.add(new Carro(2L, "Brasília"));
-	 carros.add(new Carro(3L, "Chevette"));
-	 
-	 return carros;
-	}
 
 	public Iterable<Carro> getCarrosByTipo(String tipo) {
 		return rep.findByTipo(tipo);
+	}
+
+	public Carro save(Carro carro) {
+		return rep.save(carro);
 	}
 }
