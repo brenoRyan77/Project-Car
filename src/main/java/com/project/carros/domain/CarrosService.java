@@ -5,6 +5,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sun.tools.javac.util.Assert;
+
 @Service
 public class CarrosService {
 
@@ -25,6 +27,12 @@ public class CarrosService {
 	}
 
 	public Carro save(Carro carro) {
+		return rep.save(carro);
+	}
+	
+	public Carro insert(Carro carro) {
+		Assert.isNull(carro.getId(), "Não foi possível atualizar o registro");
+		
 		return rep.save(carro);
 	}
 }
